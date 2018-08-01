@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        :root {
+        --header-background-color: lightblue;
+        --body-background-color: lightgrey;
+}
+        .cell {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            text-align: right;
+        }
+
+        .header {
+            background: var(--header-background-color);
+        }
+        .body {
+            background: var(--body-background-color)
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Multiplication Table</h1>
+    <script>
+        let size = prompt("What size multiplication table would you like? example: 10")
+        // let headerColor = prompt("What color would you like the background of your headers to be?")
+        // let rowColor = prompt("What color would you like the background of the body of the table to be?")  
+        // output the header row
+        document.write('<span class="cell header">X</span>');
+        for (i = 1; i <= size; i++) {
+            document.write('<span class="cell header">' + i + '</span>');
+        }
+        // document.write('<br>');
+
+        // TODO: Write two nested for loops to output the rest of the multiplication table
+        for (c = 1; c <= size; c++) {
+            document.write("<br>")
+            document.write('<span class="cell header">' + c + '</span>')
+            for (r = 1; r <= size; r++) {
+                document.write('<span class="cell body">' + c * r + '</span>')
+            }
+        }
+    </script>
+</body>
+
+</html>
