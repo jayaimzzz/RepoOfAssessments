@@ -27,9 +27,9 @@ while (counter <= 1000) {
         counterStr = counterStr.fontcolor("red")
     }
     if (Prime(counter)) {
-    document.write('<span class="prime">' + " " + counterStr + " " + '</span>')
+    document.write('<span class="prime">' + counterStr + ", " + '</span>')
     } else {
-        document.write(" " + counterStr)
+        document.write(counterStr + ", ")
     }
     counter++
 }
