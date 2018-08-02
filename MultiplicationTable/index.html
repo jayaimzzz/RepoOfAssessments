@@ -5,44 +5,117 @@
     <title>Multiplication Table</title>
     <style>
         :root {
-        --header-background-color: lightblue;
-        --body-background-color: lightgrey;
-}
+            --header-background-color: green;
+            --body-background-color: white;
+        }
+
         .cell {
             display: inline-block;
             width: 30px;
             height: 30px;
-            text-align: right;
+            text-align: center;
+            padding-top: 6px;
+            border: 1px solid black;
         }
 
         .header {
-            background: var(--header-background-color);
+            /* background: var(--header-background-color); */
+            /* padding: 2px; */
+            border: 1px solid black;
+
         }
+
         .body {
-            background: var(--body-background-color)
+            /* background: var(--body-background-color) */
+        }
+
+        .gray {
+            background: gray;
+        }
+
+        .blue {
+            background: blue;
+        }
+
+        .lightblue {
+            background: lightblue;
+        }
+        .lightgray {
+            background: lightgray;
         }
     </style>
 </head>
 
 <body>
     <h1>Multiplication Table</h1>
+    <h3>Header color</h3>
+    <button id="gray_header_button">GRAY</button>
+    <button id="blue_header_button">BLUE</button>
+    <h3>Body color</h3>
+    <button id="gray_body_button">LIGHT GRAY</button>
+    <button id="blue_body_button">LIGHT BLUE</button>
+    <br>
+    <br>
+    <br>
     <script>
-        let size = prompt("What size multiplication table would you like? example: 10")
-        // let headerColor = prompt("What color would you like the background of your headers to be?")
-        // let rowColor = prompt("What color would you like the background of the body of the table to be?")  
-        // output the header row
+        const gray_header_button = document.getElementById("gray_header_button")
+        const blue_header_button = document.getElementById("blue_header_button")
+        const gray_body_button = document.getElementById("gray_body_button")
+        const blue_body_button = document.getElementById("blue_body_button")
+        gray_header_button.onclick = function () {
+            let headerArray = document.getElementsByClassName("header")
+            let count = headerArray.length
+            let counter = 0
+            while (counter < count) {
+                let cell = headerArray[counter]
+                cell.className = "cell header gray"
+                counter++
+            }
+        }
+        blue_header_button.onclick = function () {
+            let headerArray = document.getElementsByClassName("header")
+            let count = headerArray.length
+            let counter = 0
+            while (counter < count) {
+                let cell = headerArray[counter]
+                cell.className = "cell header blue"
+                counter++
+            }
+        }
+        gray_body_button.onclick = function () {
+            let middleStuffArray = document.getElementsByClassName("middleStuff")
+            let count = middleStuffArray.length
+            let counter = 0
+            while (counter < count) {
+                let cell = middleStuffArray[counter]
+                cell.className = "cell body middleStuff lightgray"
+                counter++
+            }
+        }
+        blue_body_button.onclick = function () {
+            let middleStuffArray = document.getElementsByClassName("middleStuff")
+            let count = middleStuffArray.length
+            let counter = 0
+            while (counter < count) {
+                let cell = middleStuffArray[counter]
+                cell.className = "cell body middleStuff lightblue"
+                counter++
+            }
+        }
+        let size = 10
+        size = prompt("What size multiplication able would you like? example: 10")
         document.write('<span class="cell header">X</span>');
         for (i = 1; i <= size; i++) {
-            document.write('<span class="cell header">' + i + '</span>');
+            document.write('<span class="cell header topRowLeftColumn">' + i + '</span>');
         }
         // document.write('<br>');
 
         // TODO: Write two nested for loops to output the rest of the multiplication table
         for (c = 1; c <= size; c++) {
             document.write("<br>")
-            document.write('<span class="cell header">' + c + '</span>')
+            document.write('<span class="cell header topRowLeftColumn">' + c + '</span>')
             for (r = 1; r <= size; r++) {
-                document.write('<span class="cell body">' + c * r + '</span>')
+                document.write('<span class="cell body middleStuff">' + c * r + '</span>')
             }
         }
     </script>
