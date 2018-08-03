@@ -1,0 +1,9 @@
+.bold {
+    font-weight: bold;
+}
+.red {
+    color: red;
+}
+.box {
+    border: 1px solid black;
+}
