@@ -38,7 +38,187 @@
             }
         }
         destination.appendChild(answerParagraph)
+
+        let kataStep = document.createElement('h3')
+        text = document.createTextNode("3. Display the odd numbers from 1 to 20")
+        kataStep.appendChild(text)
+        destination.appendChild(kataStep)
+        answerParagraph = document.createElement('p')
+        for (i = 1; i <= 20; i++) {
+            if (i % 2 !== 0) {
+                answer = document.createTextNode(i + ", ")
+                answerParagraph.appendChild(answer)
+            }
+        }
+        destination.appendChild(answerParagraph)
+
+        kataStep = document.createElement('h3')
+        text = document.createTextNode('4. Display the multiples of 5 up to 100')
+        kataStep.appendChild(text)
+        destination.appendChild(kataStep)
+        answerParagraph = document.createElement('p')
+        for (i = 1; i <= 100; i++) {
+            if (i % 5 == 0) {
+                answer = document.createTextNode(i + ", ")
+                answerParagraph.appendChild(answer)
+            }
+        }
+        destination.appendChild(answerParagraph)
+
+        kataStep = document.createElement('h3')
+        kataStep.appendChild(document.createTextNode('5. Display the square numbers up to 100'))
+        destination.appendChild(kataStep)
+        answerParagraph = document.createElement('p')
+        let sqaureRoot = 0
+        for (i = 1; i <= 100; i++) {
+            sqaureRoot = Math.sqrt(i)
+            if (sqaureRoot % 1 == 0) {
+                answer = document.createTextNode(i + ", ")
+                answerParagraph.appendChild(answer)
+            }
+        }
+        destination.appendChild(answerParagraph)
+
+        kataStep = document.createElement('h3')
+        kataStep.appendChild(document.createTextNode('6. Display the numbers counting backwards from 20'))
+        destination.appendChild(kataStep)
+        answerParagraph = document.createElement('p')
+        for (i = 20; i >= 1; i--) {
+            answer = document.createTextNode(i + ", ")
+            answerParagraph.appendChild(answer)
+        }
+        destination.appendChild(answerParagraph)
+
+        kataStep = document.createElement('h3')
+        kataStep.appendChild(document.createTextNode('7. Display the even numbers counting backwards from 20 to 1'))
+        destination.appendChild(kataStep)
+        answerParagraph = document.createElement('p')
+        for (i = 20; i > 0; i--) {
+            if (i % 2 == 0) {
+                answer = document.createTextNode(i + ", ")
+                answerParagraph.appendChild(answer)
+            }
+        }
+        destination.appendChild(answerParagraph)
+
+        kataStep = document.createElement('h3')
+        kataStep.appendChild(document.createTextNode('8. Display the odd numbers from 20 to 1'))
+        destination.appendChild(kataStep)
+        answerParagraph = document.createElement('p')
+        for (i = 20; i > 0; i--) {
+            if (i % 2 !== 0) {
+                answer = document.createTextNode(i + ", ")
+                answerParagraph.appendChild(answer)
+            }
+        }
+        destination.appendChild(answerParagraph)
+
+
+        function createKataStepHeader(a) {
+            kataStep = document.createElement('h3')
+            kataStep.appendChild(document.createTextNode(a))
+            destination.appendChild(kataStep)
+        }
+
+        function makeAParagraphFullOfAnswers(a) {
+            answer = document.createTextNode(a + ", ")
+            answerParagraph.appendChild(answer)
+        }
+
+        createKataStepHeader("9. Display the multiples of 5, counting down from 100")
+        answerParagraph = document.createElement('p')
+        for (i = 100; i > 0; i--) {
+            if (i % 5 == 0) {
+                makeAParagraphFullOfAnswers(i)
+            }
+        }
+        destination.appendChild(answerParagraph)
+
+        createKataStepHeader("10. Display the sqaure numbers, counting down from 100")
+        answerParagraph = document.createElement('p')
+        for (i = 100; i > 0; i--) {
+            sqaureRoot = Math.sqrt(i)
+            if (sqaureRoot % 1 === 0) {
+                makeAParagraphFullOfAnswers(i)
+            }
+        }
+        destination.appendChild(answerParagraph)
+
+        createKataStepHeader("11. Display the 20 elements of sampleArray")
+        answerParagraph = document.createElement('p')
+
+        const sampleArray = [469, 755, 244, 245, 758, 450, 302, 20, 712, 71, 456, 21, 398, 339, 882, 848, 179, 535, 940,
+            472
+        ];
+        for (i = 0; i < 20; i++) {
+            answer = document.createTextNode(sampleArray[i] + ', ')
+            answerParagraph.appendChild(answer)
+        }
+        destination.appendChild(answerParagraph)
+
+        createKataStepHeader("12. Display all the even numbers contained in sampleArray")
+        answerParagraph = document.createElement('p')
+        for (i = 0; i < 20; i++) {
+            if (sampleArray[i] % 2 == 0) {
+                answer = document.createTextNode(sampleArray[i] + ', ')
+                answerParagraph.appendChild(answer)
+            }
+        }
+        destination.appendChild(answerParagraph);
+
+        createKataStepHeader("13. Display all the odd numbers contained in sampleArray")
+        answerParagraph = document.createElement('p')
+        for (i = 0; i < 20; i++){
+            if (sampleArray[i] % 2 !== 0){
+                answer = document.createTextNode(sampleArray[i] + ', ')
+                answerParagraph.appendChild(answer)
+            }
+        }
+        destination.appendChild(answerParagraph)
+
+        createKataStepHeader('14. Display the sqaure of each element in sampleArray')
+        answerParagraph = document.createElement('p')
+        for (i = 0; i < 20; i++){
+            answer = document.createTextNode(sampleArray[i] * sampleArray[i] + ', ')
+            answerParagraph.appendChild(answer)
+        }
+        destination.appendChild(answerParagraph)
+
+        createKataStepHeader('15. Display the sum of all the numbers from 1 to 20')
+        answerParagraph = document.createElement('p')
+        let sum = 0
+        for(i = 1; i <= 20; i++){
+            sum += i
+        }
+        answer = document.createTextNode(sum)
+        answerParagraph.appendChild(answer)
+        destination.appendChild(answerParagraph)
+
+        createKataStepHeader('16. Display the sum of all the elements in sampleArray')
+        answerParagraph = document.createElement('p')
+        sum = 0
+        for (i = 0; i < 20; i++){
+        sum += sampleArray[i]
+        }
+        answer = document.createTextNode(sum)
+        answerParagraph.appendChild(answer)
+        destination.appendChild(answerParagraph)
+
+        createKataStepHeader("17. Display the smallest element in sampleArray")
+        answerParagraph = document.createElement('p')
+        let smallestElement = sampleArray[0]
+        for (i = 1; i < 20; i++)
+        if (sampleArray[i] < smallestElement) {
+            smallestElement = sampleArray[i]
+        }
+        answer = document.createTextNode(smallestElement)
+        answerParagraph.appendChild(answer)
+        destination.appendChild(answerParagraph)
+
+        createKataStepHeader('18. Display the largest element in sampleArray')
+        answerParagraph = document.createElement('p')
         
+
     </script>
 </body>
 
