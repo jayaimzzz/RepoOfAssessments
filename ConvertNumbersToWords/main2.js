@@ -21,7 +21,7 @@ function splitA4DigitNumber(a) {
     return splitNumber
 }
 
-const zeroToNineteenWORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eightteen', 'nineteen']
+const zeroToNineteenWORDS = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eightteen', 'nineteen']
 const tenPlaceWORDS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninty']
 
 function convertNumberToWord(a) {
@@ -31,19 +31,45 @@ function convertNumberToWord(a) {
     let tensPlace = splitNumber[2]
     let hundredsPlace = splitNumber[1]
     let thousandsPlace = splitNumber[0]
-    let firstTwoDigits = tensPlace.toString() + singlesPlace.toString()
-    let firstTwoDigitsWord = ""
-    if (firstTwoDigits < 20) {
-        firstTwoDigitsWord = zeroToNineteenWORDS[a]
-    } else if (20 <= firstTwoDigits < 100) {
-        if (firstTwoDigits % 10 == 0) {
-            firstTwoDigitsWord = tenPlaceWORDS[tensPlace]
+    let twoLSDs = parseInt(tensPlace.toString() + singlesPlace.toString())
+    let twoLSDsWord = ''
+    let hundredsPlaceWord = ''
+    let thousandsPlaceWord = ''
+    if (twoLSDs < 10) {
+        twoLSDsWord = zeroToNineteenWORDS[singlesPlace]
+    } 
+    
+    if (10 <= twoLSDs < 20) {
+        twoLSDsWord = zeroToNineteenWORDS[twoLSDs]
+    }
+    
+    if (twoLSDs < 100 && twoLSDs >= 20) {
+        console.log(20 <= twoLSDs < 100)
+        if (twoLSDs % 10 == 0) {
+            twoLSDsWord = tenPlaceWORDS[tensPlace]
         } else {
-            firstTwoDigitsWord = tenPlaceWORDS[tensPlace] + " " + zeroToNineteenWORDS[singlesPlace]
+            twoLSDsWord = tenPlaceWORDS[tensPlace] + " " + zeroToNineteenWORDS[singlesPlace]
         }
     }
-    word = firstTwoDigitsWord
+
+
+    if (hundredsPlace !== 0) {
+        hundredsPlaceWord = zeroToNineteenWORDS[hundredsPlace] + ' hundred '
+    }
+  
+    if (thousandsPlace !== 0) {
+        thousandsPlaceWord = zeroToNineteenWORDS[thousandsPlace] + ' thousand '
+    }
+
+    word = thousandsPlaceWord + hundredsPlaceWord + twoLSDsWord
     return word
 }
 
-displayToPage(convertNumberToWord(99))
+for (i = 1; i < 10000; i++){
+    if (i < 9999) {
+        displayToPageAddComma(convertNumberToWord(i))
+    } else {
+        displayToPage(convertNumberToWord(i))
+
+    }
+}
