@@ -35,11 +35,9 @@ function convertNumberToWord(a) {
     let twoLSDsWord = ''
     let hundredsPlaceWord = ''
     let thousandsPlaceWord = ''
-    if (twoLSDs < 10) {
-        twoLSDsWord = zeroToNineteenWORDS[singlesPlace]
-    } 
+   
     
-    if (10 <= twoLSDs < 20) {
+    if (twoLSDs < 20) {
         twoLSDsWord = zeroToNineteenWORDS[twoLSDs]
     }
     
