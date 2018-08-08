@@ -70,6 +70,5 @@ for (i = 1; i < 10000; i++){
         displayToPageAddComma(convertNumberToWord(i))
     } else {
         displayToPage(convertNumberToWord(i))
-
     }
 }
