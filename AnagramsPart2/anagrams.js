@@ -64,7 +64,7 @@ function findAnagramAndDisplayToPage(input) {
         displayAnArray(anagrams)
     }
 }
-// findAnagramAndDisplayToPage("listen")
+
 
 
 document.getElementById("findAllSetsOf5orMore").onclick = findAll5
@@ -77,45 +77,24 @@ function findAll5() {
     let anagramSets = {}
     let set = []
     for (let i = 0; i < words.length; i++) {
-        // for (i = 0; i < 5000; i++){
         word = words[i].replace(/[^a-z\s]+/g, "")
-        // word = words[i]
-        // console.log(word)
         alpahbetizedWord = alphabetize(word)
-        // console.log(alpahbetizedWord)
         if (anagramSets[alpahbetizedWord] === undefined) {
             anagramSets[alpahbetizedWord] = [words[i]]
         } else {
             anagramSets[alpahbetizedWord].push(' ' + words[i])
         }
-        // console.log("wait")
     }
     console.log(anagramSets)
     console.log(anagramSets.a.length)
 
        for (let alpahbetizedWord in anagramSets){
-           if (anagramSets[alpahbetizedWord].length > 4) {
+           if (anagramSets[alpahbetizedWord].length >= 5) {
                displayOnPage(anagramSets[alpahbetizedWord])
                addABreakToPage()
            }
        }
-    //    let alpahbetizedWordsWithMoreThan5Anagrams = {}
-    //    for (let alpahbetizedWord in anagramSets){
-    //        if (anagramSets[alpahbetizedWord] >= 5) {
-    //            if (alpahbetizedWordsWithMoreThan5Anagrams[alpahbetizedWord] === undefined) {
-    //             alpahbetizedWordsWithMoreThan5Anagrams[]
-    //            }
-    //        }
-    //    }
+   
 
 }
 
-// function findAll5() {
-//     let word = ''
-//     let alpahbetizedWord = ''
-//     for (i = 0; i < words.length; i++){
-//         word = words[i]
-//         alpahbetizedWord = alphabetize(word)
-
-//     }
-// }
