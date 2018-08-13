@@ -76,36 +76,78 @@ displayHeader('15. Repeat #13 using substring instead of slice.');
 displayParagraph(bestThing.substring(bestThing.length - 12));
 
 displayHeader('16. Repeat #14 using substr instead of slice.');
+displayParagraph(bestThing.substr(23, 38 - 23))
 
 displayHeader('17. Find and display the index of "only" in bestThing');
+displayParagraph(bestThing.indexOf('only'))
 
 displayHeader('18. Find and display the index of the last word in bestThing');
+let lastWord = bestThingArray[bestThingArray.length - 1]
+displayParagraph(bestThing.indexOf(lastWord))
 
 displayHeader('19. Find and display all cities from gotCitiesCSV  that use double vowels ("aa","ee", etc.)');
+for(let i = 0; i < gotCitiesArray.length; i++){
+    if (gotCitiesArray[i].includes('aa') || gotCitiesArray[i].includes('ee') || gotCitiesArray[i].includes('ii') || gotCitiesArray[i].includes('oo') || gotCitiesArray[i].includes('uu')) {
+        displayParagraph(gotCitiesArray[i])
+    }
+}
 
 displayHeader('20. Find and display all cities from lotrCitiesArray that end with "or"');
+for(let i = 0; i < lotrCitiesArray.length; i++){
+    if (lotrCitiesArray[i].endsWith('or')) {displayParagraph(lotrCitiesArray[i])}
+}
 
 displayHeader('21. Find and display all the words in bestThing that start with a "b"');
+for(let i = 0; i < bestThingArray.length; i++){
+    if (bestThingArray[i].startsWith('b')) {displayParagraph(bestThingArray[i])};
+}
 
 displayHeader('22. Display "Yes" or "No" if lotrCitiesArray includes "Mirkwood"');
+if(lotrCitiesArray.includes('Mirkwood')) {displayParagraph('Yes')} else {displayParagraph('No')};
 
 displayHeader('23. Display "Yes" or "No" if lotrCitiesArray includes "Hollywood"');
+if(lotrCitiesArray.includes('Hollywood')) {displayParagraph('Yes')} else {displayParagraph('No')};
 
 displayHeader('24. Display the index of "Mirkwood" in lotrCitiesArray');
+displayParagraph(lotrCitiesArray.indexOf('Mirkwood'));
 
 displayHeader('25. Find and display the first city in lotrCitiesArray that has more than one word');
+for (i = 0; i < lotrCitiesArray.length; i++){
+    if (lotrCitiesArray[i].split(' ').length > 1) {
+        displayParagraph(lotrCitiesArray[i]);
+        i = lotrCitiesArray;
+    };
+}
 
 displayHeader('26. Reverse the order in lotrCitiesArray');
+lotrCitiesArray.reverse();
+displayAnArrayRealPrettyLike(lotrCitiesArray);
 
 displayHeader('27. Sort lotrCitiesArray alphabetically');
+lotrCitiesArray.sort();
+displayAnArrayRealPrettyLike(lotrCitiesArray);
+
 
 displayHeader('28. Sort lotrCitiesArray by the number of characters in each city (i.e., shortest city names go first)');
+function compareStringLength(a, b){
+    return a.length - b.length
+}
+lotrCitiesArray.sort(compareStringLength)
+displayAnArrayRealPrettyLike(lotrCitiesArray)
 
 displayHeader('29. Using pop, remove the last city from lotrCitiesArray');
+let cityThatWasRemoved = lotrCitiesArray.pop();
+displayAnArrayRealPrettyLike(lotrCitiesArray);
 
 displayHeader('30. Using push, add back the city from lotrCitiesArray that was removed in #29 to the back of the array');
+lotrCitiesArray.push(cityThatWasRemoved);
+displayAnArrayRealPrettyLike(lotrCitiesArray);
 
 displayHeader('31. Using shift, remove the first city from lotrCitiesArray');
+let shiftedCity = lotrCitiesArray.shift();
+displayAnArrayRealPrettyLike(lotrCitiesArray);
 
 displayHeader('32. Using unshift, add back the city from lotrCitiesArray that was removed in #31 to the front of the array');
+lotrCitiesArray.unshift(shiftedCity);
+displayAnArrayRealPrettyLike(lotrCitiesArray);
 
