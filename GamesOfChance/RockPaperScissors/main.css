@@ -1,0 +1,8 @@
+h1 {
+    color: brown;
+}
+#mainDiv {
+    width: 500px;
+    /* background-color: rgb(255, 255, 255); */
+    margin: auto;
+}
